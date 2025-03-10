@@ -1,19 +1,26 @@
-{% extends 'base.html' %}
+{% extends 'page_base.html' %}
 {% load static %}
 
-{% block title %} {{ object.name }} {% endblock %}
+{% block title %}
+	{{ object.name }}
+{% endblock %}
+
+{% block page_name %}
+	{{ object.name }}
+{% endblock %}
 
 {% block content %}
-	<h2> {{ object.name }} </h2>
+	<p> Author: {{ object.author }} <p>
+	
+	<p> Ingredients:
 	<ul>
 		{% for ingredient in object.ingredients.all %}
 			{% with name=ingredient.ingredient.name %}
 				{% with quantity=ingredient.quantity %}
-			
 					<li>{{ quantity }} of {{ name }}</li>
-				
 				{% endwith %}
 			{% endwith %}
 		{% endfor %}
 	</ul>
+	</p>
 {% endblock %}

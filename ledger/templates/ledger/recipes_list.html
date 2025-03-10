@@ -1,10 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'page_base.html' %}
 {% load static %}
 
-{% block title %} Recipes {% endblock %}
+{% block title %}
+	Recipes
+{% endblock %}
+
+{% block page_name %}
+	Recipes
+{% endblock %}
 
 {% block content %}
-	<h2> Recipes: </h2>
 	<ol>
 		{% for recipe in object_list %}
 			<li>
